@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--ANGULAR AND JQUERY CDN-->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="app.js"></script> <!--js file link-->
+    <link rel="stylesheet" href="style.css" /> <!--css file link-->
+</head>
+
+<body ng-app="contactApp" ng-controller="mycontroller">
+
+    <!--adding contact icon-->
+    <div>
+        <center><img src="contacticon.jpg" class="contactLogo" alt=""></center>
+    </div>
+
+<div class="form">
+
+    <h2 class="title">Contact List</h2>
+<!--input field id-->
+    <input type="hidden" placeholder="ID"/>
+    <p>{{ID}}</p>
+
+<!--contact adding form-->
+    <form action="">
+        <input class="name" id="field" type="text" placeholder="Enter name" ng-model="Name"><br><br>
+        <input class="name" id="field" type="Number" placeholder="Enter Phone No." ng-model="Number"><br><br>
+        <button id="button" type="button" value="add" ng-click="save()">save</button>
+        <button type="button" id="button" value="update" ng-click="edit()">update</button>
+    </form>
+<!--contact adding form-->
+
+    <center>
+<!--first table for headings-->
+        <div id="div1">
+        <table id="table1">
+            <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Action</th>
+            </tr>
+        </table>
+    </div>
+
+<!--second table for datas-->
+    <div id="div2">
+    <table id="table2">
+        <tr ng-click="bindSelectData(cont)" ng-repeat="cont in Contacts">
+            <td>{{cont.Id}}</td>
+            <td>{{cont.Name}}</td>
+            <td>{{cont.Number}}</td>
+            <td><button type="button" id="deleteBtn" value="delete" ng-click="remove(cont)">delete</button></td>
+        </tr>
+    </table>
+</div>
+<!--second table for datas-->
+
+</center>
+</div>
+
+</body>
+</html>
